@@ -1,8 +1,13 @@
+import Hero from "./components/Hero";
+import { EstiloGlobal } from "./styles";
 
 
 function App() {
   return (
-    <div className="App"></div>
+    <div className="App">
+      <EstiloGlobal />
+      <Hero />
+    </div>
   );
 }
 
