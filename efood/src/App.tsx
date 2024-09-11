@@ -1,14 +1,15 @@
-import Hero from "./components/Hero";
-import { EstiloGlobal } from "./styles";
-
+import Hero from './components/Home/Hero'
+import Listagem from './components/Home/Listagem'
+import { Body, EstiloGlobal } from './styles'
 
 function App() {
   return (
-    <div className="App">
+    <Body className="App">
       <EstiloGlobal />
       <Hero />
-    </div>
-  );
+      <Listagem />
+    </Body>
+  )
 }
 
-export default App;
+export default App
