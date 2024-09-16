@@ -1,15 +1,19 @@
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import Listagem from './components/Listagem'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Body, EstiloGlobal } from './styles'
+import Home from './pages/Home'
+
+const rotas = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  }
+])
 
 function App() {
   return (
     <Body className="App">
       <EstiloGlobal />
-      <Hero />
-      <Listagem />
-      <Footer />
+      <RouterProvider router={rotas} />
     </Body>
   )
 }

@@ -7,23 +7,37 @@ export const FooterContainer = styled.div`
   height: 298px;
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-box-align: center;
   align-items: center;
 
-  img: first-children {
+  .logo {
+    max-width: 125px;
+    width: 100%;
+    height: 58px;
     margin-top: 40px;
-    margin-bottom: 32.5px;
+    margin-bottom: 32px;
   }
 `
 
 export const RedesContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 80px;
+  max-width: 88px;
+  width: 100%;
+  height: 24px;
 
   img {
-    margin-bottom: 80px;
+    max-width: 24px;
+    width: 100%;
+    height: 24px;
   }
 `
 
-export const Disclaimer = styled.p``
+export const Disclaimer = styled.p`
+  max-width: 480px;
+  width: 100%;
+  height: 24px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+`
