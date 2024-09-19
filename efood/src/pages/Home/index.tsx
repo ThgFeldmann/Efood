@@ -1,10 +1,10 @@
 import Footer from '../../components/Footer'
-import Hero from '../../components/Hero'
-import Listagem from '../../components/Listagem'
+import Banner from '../../components/Banner'
+import Listagem from '../../components/ListagemRestaurantes'
 
 const Home = () => (
   <>
-    <Hero />
+    <Banner />
     <Listagem />
     <Footer />
   </>

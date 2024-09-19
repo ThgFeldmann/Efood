@@ -1,17 +1,7 @@
 import styled from 'styled-components'
 import { cores, Tag } from '../../styles'
 
-export const Lista = styled.ul`
-  margin: 80px 171px 120px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 80px;
-  row-gap: 24px;
-  align-items: center;
-`
-
-export const Card = styled.li`
+export const Card = styled.div`
   max-width: 472px;
   width: 100%;
   max-height: 398px;

@@ -1,12 +1,12 @@
-import logo from '../../assets/images/logo.png'
-import { Container, Title } from './styles'
-import bannerImg from '../../assets/images/Vector.png'
+import { Categoria, Imagem, Restaurante } from './styles'
 
 const Hero = () => (
-  <Container style={{ backgroundImage: `url(${bannerImg})` }}>
-    <img src={logo} alt="Efood" />
-    <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
-  </Container>
+  <Imagem>
+    <div className="container">
+      <Categoria>Italiana</Categoria>
+      <Restaurante>La Dolce Vita Trattoria</Restaurante>
+    </div>
+  </Imagem>
 )
 
 export default Hero

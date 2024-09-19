@@ -21,6 +21,7 @@ export const EstiloGlobal = createGlobalStyle`
 
 export const Body = styled.div`
   background-color: ${cores.begeClaro};
+  max-width: 100vw;
 `
 
 export const Tag = styled.div`
