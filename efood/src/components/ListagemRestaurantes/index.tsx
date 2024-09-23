@@ -1,11 +1,14 @@
 import { Lista } from './styles'
-import Restaurante from '../Restaurante'
+import * as R from '../Restaurante'
 
 const Listagem = () => (
   <Lista>
-    <Restaurante />
-    <Restaurante />
-    <Restaurante />
+    <R.Hioki />
+    <R.Trattoria />
+    <R.Hioki />
+    <R.Trattoria />
+    <R.Hioki />
+    <R.Trattoria />
   </Lista>
 )
 

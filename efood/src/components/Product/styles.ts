@@ -3,10 +3,13 @@ import { cores } from '../../styles'
 
 export const Card = styled.li`
   background-color: ${cores.rosa};
-  color: ${cores.bege};
   max-width: 320px;
   width: 100%;
   height: 338px;
+
+  img {
+    margin: 8px;
+  }
 `
 
 export const NomeProduto = styled.h4`
@@ -16,6 +19,8 @@ export const NomeProduto = styled.h4`
   font-size: 16px;
   font-weight: bold;
   line-height: 18px;
+  color: ${cores.bege};
+  margin-left: 8px;
 `
 
 export const Descricao = styled.p`
@@ -25,6 +30,8 @@ export const Descricao = styled.p`
   font-size: 14px;
   font-weight: regular;
   line-height: 22px;
+  color: ${cores.bege};
+  margin: 8px;
 `
 
 export const Botao = styled.button`
@@ -32,4 +39,11 @@ export const Botao = styled.button`
   width: 100%;
   height: 24px;
   text-align: center;
+  background-color: ${cores.bege};
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+  margin: 0 8px;
+  cursor: pointer;
 `

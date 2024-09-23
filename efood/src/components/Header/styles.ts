@@ -11,9 +11,12 @@ export const HeaderContainer = styled.header`
     max-width: 1024px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     padding: 39px 0;
     margin: 0 auto;
+  }
+
+  img {
+    margin: 0 215px 0 345px;
   }
 `
 
@@ -37,5 +40,3 @@ export const TextCart = styled.p`
 // img {
 //   margin: 0 193px 0 341px;
 // }
-
-// 374 496

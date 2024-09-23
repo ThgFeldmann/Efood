@@ -26,13 +26,16 @@ export const TagContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  margin: 16px 16px 0 283px;
+  margin: 16px 16px 0 275px;
 
   div {
-    width: 100%;
     height: 26px;
     font-size: 12px;
     font-weight: bold;
+  }
+
+  .notHighlited {
+    margin-left: 121px;
   }
 `
 
@@ -43,7 +46,7 @@ export const TagDestaque = styled(Tag)`
 `
 
 export const TagCategoria = styled(Tag)`
-  max-width: 60px;
+  width: 60px;
 `
 
 export const Titulo = styled.h3`
