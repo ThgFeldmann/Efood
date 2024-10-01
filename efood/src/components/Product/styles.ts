@@ -6,10 +6,7 @@ export const Card = styled.li`
   max-width: 320px;
   width: 100%;
   height: 338px;
-
-  img {
-    margin: 8px;
-  }
+  padding: 8px;
 `
 
 export const NomeProduto = styled.h4`
@@ -17,10 +14,10 @@ export const NomeProduto = styled.h4`
   width: 100%;
   height: 19px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 900;
   line-height: 18px;
   color: ${cores.bege};
-  margin-left: 8px;
+  margin-top: 4px;
 `
 
 export const Descricao = styled.p`
@@ -31,7 +28,7 @@ export const Descricao = styled.p`
   font-weight: regular;
   line-height: 22px;
   color: ${cores.bege};
-  margin: 8px;
+  margin: 8px 0;
 `
 
 export const Botao = styled.button`
@@ -44,6 +41,5 @@ export const Botao = styled.button`
   font-size: 14px;
   font-weight: bold;
   line-height: 16px;
-  margin: 0 8px;
   cursor: pointer;
 `

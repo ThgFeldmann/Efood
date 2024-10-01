@@ -23,18 +23,3 @@ export const Body = styled.div`
   background-color: ${cores.begeClaro};
   max-width: 100vw;
 `
-
-export const Tag = styled.div`
-  max-width: 121px;
-  width: 100%;
-  height: 26px;
-  background-color: ${cores.rosa};
-  color: ${cores.bege};
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 14px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-`
