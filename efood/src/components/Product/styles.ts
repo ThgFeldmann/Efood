@@ -7,6 +7,10 @@ export const Card = styled.li`
   width: 100%;
   height: 338px;
   padding: 8px;
+
+  img {
+    cursor: pointer;
+  }
 `
 
 export const NomeProduto = styled.h4`
@@ -25,7 +29,7 @@ export const Descricao = styled.p`
   width: 100%;
   height: 88px;
   font-size: 14px;
-  font-weight: regular;
+  font-weight: 400;
   line-height: 22px;
   color: ${cores.bege};
   margin: 8px 0;

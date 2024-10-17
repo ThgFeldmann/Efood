@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeroContainer = styled.div`
-  max-width: 100vw;
+  max-width: 1366px;
   width: 100%;
   height: 280px;
   display: block;
@@ -9,7 +9,7 @@ export const HeroContainer = styled.div`
   line-height: 38px;
 
   .container {
-    margin-left: 170px;
+    margin-left: 245px;
     height: 280px;
     position: relative;
     display: flex;

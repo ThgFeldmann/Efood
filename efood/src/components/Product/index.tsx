@@ -1,18 +1,32 @@
 import { Card, NomeProduto, Descricao, Botao } from './styles'
 
 type Props = {
-  name: string
-  description: string
-  image: string
+  id: number
+  nome: string
+  descricao: string
+  foto: string
+  preco: number
+  porcao: string
 }
 
-const Product = ({ name, description, image }: Props) => (
-  <Card>
-    <img src={image} alt={name} />
-    <NomeProduto>{name}</NomeProduto>
-    <Descricao>{description}</Descricao>
-    <Botao>Adicionar ao carrinho</Botao>
-  </Card>
-)
+const Product = ({ foto, nome, descricao }: Props) => {
+  // const getDescricao = (descricao: string) => {
+  //   if (descricao.length > 100) {
+  //     return descricao.slice(0, 70) + '...'
+  //   }
+  //   return descricao
+  // }
+
+  return (
+    <Card>
+      <img src={foto} alt={nome} />
+      <NomeProduto>{nome}</NomeProduto>
+      <Descricao>{descricao}</Descricao>
+      <Botao>Adicionar ao carrinho</Botao>
+    </Card>
+  )
+}
 
 export default Product
+
+// {getDescricao(descricao)} no lugar de 'descricao'

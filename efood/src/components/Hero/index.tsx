@@ -1,14 +1,34 @@
+import { Restaurant } from '../../App'
 import { Categoria, HeroContainer, Restaurante } from './styles'
-import hero from '../../assets/images/hero.png'
 
-const Hero = () => (
-  <HeroContainer>
-    <img src={hero} alt="La Dolce Vita Trattoria" />
-    <div className="container">
-      <Categoria>Italiana</Categoria>
-      <Restaurante>La Dolce Vita Trattoria</Restaurante>
+type Props = {
+  restaurante: Restaurant[]
+}
+
+const Hero = ({ restaurante }: Props) => (
+  <>
+    <div>
+      {restaurante.map((restaurante) => (
+        <HeroContainer key={restaurante.id}>
+          <img src={restaurante.capa} alt={restaurante.titulo} />
+          <div className="container">
+            <Categoria>{restaurante.tipo}</Categoria>
+            <Restaurante>{restaurante.titulo}</Restaurante>
+          </div>
+        </HeroContainer>
+      ))}
     </div>
-  </HeroContainer>
+  </>
 )
 
 export default Hero
+
+{
+  /* <HeroContainer>
+        <img src={restaurante.} alt={titulo} />
+        <div className="container">
+          <Categoria>{tipo}</Categoria>
+          <Restaurante>{titulo}</Restaurante>
+        </div>
+      </HeroContainer> */
+}
