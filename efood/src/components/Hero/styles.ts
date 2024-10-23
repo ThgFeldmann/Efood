@@ -5,7 +5,6 @@ export const HeroContainer = styled.div`
   width: 100%;
   height: 280px;
   display: block;
-  text-align: center;
   line-height: 38px;
 
   .container {
@@ -29,17 +28,13 @@ export const HeroContainer = styled.div`
 `
 
 export const Categoria = styled.p`
-  max-width: 100px;
-  width: 100%;
   height: 33px;
   font-weight: 100;
   font-size: 32px;
   color: #fff;
 `
 
-export const Restaurante = styled.h1`
-  max-width: 338px;
-  width: 100%;
+export const NomeRestaurante = styled.h1`
   height: 33px;
   font-weight: bold;
   line-height: 38px;

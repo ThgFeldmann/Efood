@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const Card = styled.li`
+export const Card = styled.div`
   background-color: ${cores.rosa};
   max-width: 320px;
   width: 100%;
@@ -10,11 +10,12 @@ export const Card = styled.li`
 
   img {
     cursor: pointer;
+    width: 304px;
+    height: 167px;
   }
 `
 
 export const NomeProduto = styled.h4`
-  max-width: 124px;
   width: 100%;
   height: 19px;
   font-size: 16px;
@@ -45,5 +46,4 @@ export const Botao = styled.button`
   font-size: 14px;
   font-weight: bold;
   line-height: 16px;
-  cursor: pointer;
 `

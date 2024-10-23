@@ -3,8 +3,6 @@ import { Body, EstiloGlobal } from './styles'
 import Home from './pages/Home'
 import Perfil from './pages/Perfil'
 
-// props para a api
-
 export type Cardapio = {
   foto: string
   preco: number

@@ -1,34 +1,26 @@
-import { Restaurant } from '../../App'
-import { Categoria, HeroContainer, Restaurante } from './styles'
+import { Categoria, HeroContainer, NomeRestaurante } from './styles'
 
 type Props = {
-  restaurante: Restaurant[]
+  id: number
+  titulo: string
+  tipo: string
+  capa: string
 }
 
-const Hero = ({ restaurante }: Props) => (
-  <>
-    <div>
-      {restaurante.map((restaurante) => (
-        <HeroContainer key={restaurante.id}>
-          <img src={restaurante.capa} alt={restaurante.titulo} />
+const Hero = ({ titulo, tipo, capa }: Props) => {
+  return (
+    <>
+      <div>
+        <HeroContainer>
+          <img src={capa} alt={titulo} />
           <div className="container">
-            <Categoria>{restaurante.tipo}</Categoria>
-            <Restaurante>{restaurante.titulo}</Restaurante>
+            <Categoria>{tipo}</Categoria>
+            <NomeRestaurante>{titulo}</NomeRestaurante>
           </div>
         </HeroContainer>
-      ))}
-    </div>
-  </>
-)
+      </div>
+    </>
+  )
+}
 
 export default Hero
-
-{
-  /* <HeroContainer>
-        <img src={restaurante.} alt={titulo} />
-        <div className="container">
-          <Categoria>{tipo}</Categoria>
-          <Restaurante>{titulo}</Restaurante>
-        </div>
-      </HeroContainer> */
-}

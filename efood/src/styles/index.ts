@@ -16,6 +16,10 @@ export const EstiloGlobal = createGlobalStyle`
     list-style: none;
     text-decoration: none;
     color: ${cores.rosa};
+
+    button {
+      cursor: pointer;
+    }
   }
 `
 

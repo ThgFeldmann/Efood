@@ -67,6 +67,7 @@ export const CardButton = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
+  cursor: pointer;
 
   position: absolute;
   left: 8px;

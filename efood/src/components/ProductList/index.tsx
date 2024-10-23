@@ -17,60 +17,78 @@ type Props = {
 }
 
 const ProductList = ({ produtos }: Props) => {
-  const [modalAberta, setModalAberta] = useState(false)
+  const [modal, setModal] = useState(false)
+  const [modalNome, setModalNome] = useState('')
+  const [modalDescricao, setModalDescricao] = useState('')
+  const [modalPreco, setModalPreco] = useState(0)
+  const [modalPorcao, setModalPorcao] = useState('')
+  const [modalUrl, setModalUrl] = useState('')
+
+  const formataPreco = (preco: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
+  const formataPorcao = (modalPorcao: string) => {
+    if (modalPorcao.length > 8) {
+      return 'de ' + modalPorcao
+    }
+    return modalPorcao
+  }
 
   return (
     <>
       <ListContainer>
         <ListaProdutos>
           {produtos.map((produto) => (
-            // erro aqui | n consigo renderiza as props do cardapio
-            <Product
-              key={produto.nome}
-              foto={produto.foto}
-              preco={produto.preco}
-              id={produto.id}
-              nome={produto.nome}
-              descricao={produto.descricao}
-              porcao={produto.porcao}
-            />
+            <div
+              key={produto.id}
+              onClick={() => {
+                setModal(true)
+                setModalNome(produto.nome)
+                setModalDescricao(produto.descricao)
+                setModalPreco(produto.preco)
+                setModalPorcao(produto.porcao)
+                setModalUrl(produto.foto)
+              }}
+            >
+              <Product
+                foto={produto.foto}
+                preco={produto.preco}
+                id={produto.id}
+                nome={produto.nome}
+                descricao={produto.descricao}
+                porcao={produto.porcao}
+              />
+            </div>
           ))}
         </ListaProdutos>
       </ListContainer>
-      <Modal className={modalAberta ? 'visible' : ''}>
-        {produtos.map((produto) => (
-          <ModalContainer key={produto.id}>
-            <img
-              className="fechar"
-              src={fechar}
-              alt="Fechar"
-              onClick={() => setModalAberta(false)}
-            />
-            <img className="prato" src={produto.foto} alt={produto.nome} />
-            <div className="container">
-              <Title>Pizza Marguerita</Title>
-              <Description>
-                {produto.descricao} <br />
-                <br />
-                <span>Serve: de {produto.porcao}</span>
-              </Description>
-              <Button>Adicionar ao carrinho - {produto.preco}</Button>
-            </div>
-          </ModalContainer>
-        ))}
-        <div onClick={() => setModalAberta(false)} className="overlay"></div>
+      <Modal className={modal ? 'visible' : ''}>
+        <ModalContainer>
+          <img // botao fechar modal
+            className="fechar"
+            src={fechar}
+            alt="Fechar"
+            onClick={() => setModal(false)}
+          />
+          <img className="prato" src={modalUrl} alt={modalNome} />
+          <div className="container">
+            <Title>Pizza Marguerita</Title>
+            <Description>
+              {modalDescricao} <br />
+              <br />
+              <span>Serve: {formataPorcao(modalPorcao)}</span>
+            </Description>
+            <Button>Adicionar ao carrinho - {formataPreco(modalPreco)}</Button>
+          </div>
+        </ModalContainer>
+        <div onClick={() => setModal(false)} className="overlay"></div>
       </Modal>
     </>
   )
 }
 
 export default ProductList
-
-// feature futura
-
-// const formataPreco = (preco: number) => {
-//   return new Intl.NumberFormat('pt-BR', {
-//     style: 'currency',
-//     currency: 'BRL'
-//   }).format(preco)
-// }

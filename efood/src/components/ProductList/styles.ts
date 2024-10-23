@@ -29,7 +29,7 @@ export const Modal = styled.div`
   }
 
   .prato {
-    max-width: 280px;
+    width: 280px;
     height: 280px;
   }
 
