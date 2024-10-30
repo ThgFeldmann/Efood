@@ -10,7 +10,9 @@ const Header = () => {
       <div className="container">
         <Link href="/">Restaurantes</Link>
         <img src={logo} alt="Logo da Efood" />
-        <TextCart onClick={() => setCart(true)}>0 produto(s) no seu carrinho</TextCart>
+        <TextCart onClick={() => setCart(true)}>
+          0 produto(s) no seu carrinho
+        </TextCart>
       </div>
     </HeaderContainer>
   )

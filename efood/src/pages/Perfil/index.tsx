@@ -5,7 +5,6 @@ import Header from '../../components/Header'
 import Hero from '../../components/Hero'
 import ProductList from '../../components/ProductList'
 import { Restaurant } from '../../App'
-import Cart from '../../components/Cart'
 
 const Perfil = () => {
   const [restaurante, setRestaurante] = useState<Restaurant>()

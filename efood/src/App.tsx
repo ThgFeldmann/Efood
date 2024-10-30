@@ -1,10 +1,7 @@
-import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { Body, EstiloGlobal } from './styles'
 
 import Rotas from './routes'
-
-import { store } from './store'
 
 export type Cardapio = {
   foto: string
@@ -28,14 +25,12 @@ export type Restaurant = {
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Body className="App">
-          <EstiloGlobal />
-          <Rotas />
-        </Body>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <Body className="App">
+        <EstiloGlobal />
+        <Rotas />
+      </Body>
+    </BrowserRouter>
   )
 }
 
