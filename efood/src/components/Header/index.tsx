@@ -1,14 +1,19 @@
 import { HeaderContainer, Link, TextCart } from './styles'
 import logo from '../../assets/images/logo.png'
+import { useState } from 'react'
 
-const Header = () => (
-  <HeaderContainer>
-    <div className="container">
-      <Link href="/">Restaurantes</Link>
-      <img src={logo} alt="Logo da Efood" />
-      <TextCart>0 produto(s) no seu carrinho</TextCart>
-    </div>
-  </HeaderContainer>
-)
+const Header = () => {
+  const [cart, setCart] = useState(false)
+
+  return (
+    <HeaderContainer>
+      <div className="container">
+        <Link href="/">Restaurantes</Link>
+        <img src={logo} alt="Logo da Efood" />
+        <TextCart onClick={() => setCart(true)}>0 produto(s) no seu carrinho</TextCart>
+      </div>
+    </HeaderContainer>
+  )
+}
 
 export default Header

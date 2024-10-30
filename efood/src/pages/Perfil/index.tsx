@@ -1,33 +1,42 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Hero from '../../components/Hero'
 import ProductList from '../../components/ProductList'
+import { Restaurant } from '../../App'
+import Cart from '../../components/Cart'
 
 const Perfil = () => {
+  const [restaurante, setRestaurante] = useState<Restaurant>()
   const location = useLocation()
-  const cardapio = location.state.cardapio
-  const restauranteId = location.state.id
-  const restauranteTitulo = location.state.titulo
-  const restauranteTipo = location.state.tipo
-  const restauranteCapa = location.state.capa
+
+  const id = location.state.id
 
   useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((data) => setRestaurante(data))
+
     // garante que o scroll começa no topo da página
     window.scrollTo(0, 0)
-  }, [])
+  }, [id])
+
+  if (!restaurante) {
+    return <h3>Carregando...</h3>
+  }
 
   return (
     <>
       <Header />
-      <Hero
-        id={restauranteId}
-        titulo={restauranteTitulo}
-        tipo={restauranteTipo}
-        capa={restauranteCapa}
-      />
-      <ProductList produtos={cardapio} />
+      <div key={restaurante.id}>
+        <Hero
+          titulo={restaurante?.titulo}
+          tipo={restaurante?.tipo}
+          capa={restaurante?.capa}
+        />
+        <ProductList produtos={restaurante?.cardapio} />
+      </div>
       <Footer />
     </>
   )

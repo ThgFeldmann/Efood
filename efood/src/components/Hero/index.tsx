@@ -1,7 +1,6 @@
 import { Categoria, HeroContainer, NomeRestaurante } from './styles'
 
 type Props = {
-  id: number
   titulo: string
   tipo: string
   capa: string

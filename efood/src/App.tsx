@@ -1,7 +1,10 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 import { Body, EstiloGlobal } from './styles'
-import Home from './pages/Home'
-import Perfil from './pages/Perfil'
+
+import Rotas from './routes'
+
+import { store } from './store'
 
 export type Cardapio = {
   foto: string
@@ -23,23 +26,16 @@ export type Restaurant = {
   cardapio: Cardapio[]
 }
 
-const rotas = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/perfil',
-    element: <Perfil />
-  }
-])
-
 function App() {
   return (
-    <Body className="App">
-      <EstiloGlobal />
-      <RouterProvider router={rotas} />
-    </Body>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Body className="App">
+          <EstiloGlobal />
+          <Rotas />
+        </Body>
+      </BrowserRouter>
+    </Provider>
   )
 }
 

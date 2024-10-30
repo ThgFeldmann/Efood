@@ -11,6 +11,7 @@ import {
   Title
 } from './styles'
 import fechar from '../../assets/images/fechar.png'
+import { Overlay } from '../../styles'
 
 type Props = {
   produtos: Cardapio[]
@@ -85,7 +86,7 @@ const ProductList = ({ produtos }: Props) => {
             <Button>Adicionar ao carrinho - {formataPreco(modalPreco)}</Button>
           </div>
         </ModalContainer>
-        <div onClick={() => setModal(false)} className="overlay"></div>
+        <Overlay onClick={() => setModal(false)} />
       </Modal>
     </>
   )

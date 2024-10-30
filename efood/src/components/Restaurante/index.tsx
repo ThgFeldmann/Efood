@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   Card,
   CardButton,
@@ -29,29 +29,28 @@ const Restaurante = ({
   tipo,
   avaliacao,
   descricao,
-  capa,
-  cardapio
+  capa
 }: Props) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const toProfilePage = (
-    cardapio: Cardapio[],
-    id: number,
-    capa: string,
-    titulo: string,
-    tipo: string
-  ) => {
-    navigate('/perfil', { state: { cardapio, id, capa, titulo, tipo } })
-  }
+  // const toProfilePage = (
+  //   cardapio: Cardapio[],
+  //   id: number,
+  //   capa: string,
+  //   titulo: string,
+  //   tipo: string
+  // ) => {
+  //   navigate('/perfil', { state: { cardapio, id, capa, titulo, tipo } })
+  // }
 
-  const handleClick = (
-    id: number,
-    capa: string,
-    titulo: string,
-    tipo: string
-  ) => {
-    toProfilePage(cardapio, id, capa, titulo, tipo)
-  }
+  // const handleClick = (
+  //   id: number,
+  //   capa: string,
+  //   titulo: string,
+  //   tipo: string
+  // ) => {
+  //   toProfilePage(cardapio, id, capa, titulo, tipo)
+  // }
 
   return (
     <Card>
@@ -72,13 +71,9 @@ const Restaurante = ({
         </TitleContainer>
         <Descricao>{descricao}</Descricao>
         <CardButton>
-          <a
-            onClick={() => {
-              handleClick(id, capa, titulo, tipo)
-            }}
-          >
+          <Link to={'/perfil'} state={{ id }}>
             Saiba mais
-          </a>
+          </Link>
         </CardButton>
       </div>
     </Card>
