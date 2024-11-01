@@ -77,7 +77,7 @@ const ProductList = ({ produtos }: Props) => {
           />
           <img className="prato" src={modalUrl} alt={modalNome} />
           <div className="container">
-            <Title>Pizza Marguerita</Title>
+            <Title>{modalNome}</Title>
             <Description>
               {modalDescricao} <br />
               <br />
