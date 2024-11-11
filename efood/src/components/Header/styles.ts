@@ -28,7 +28,7 @@ export const Link = styled.a`
   text-align: center;
 `
 
-export const TextCart = styled.p`
+export const CartButton = styled.p`
   font-size: 18px;
   font-weight: bold;
   line-height: 21px;

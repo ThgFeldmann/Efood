@@ -7,8 +7,12 @@ export const CartContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: flex-end;
+
+  &.is-open {
+    display: flex;
+  }
 `
 
 export const SideBar = styled.aside`
@@ -61,6 +65,7 @@ export const Lixeira = styled.img`
   right: 8px;
   max-width: 16px;
   max-height: 16px;
+  cursor: pointer;
 `
 
 export const Button = styled.button`

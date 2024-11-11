@@ -19,7 +19,14 @@ const Listagem = ({ restaurante }: Props) => {
             avaliacao={restaurante.avaliacao}
             descricao={restaurante.descricao}
             capa={restaurante.capa}
-            cardapio={restaurante.cardapio}
+            cardapio={{
+              foto: '',
+              preco: 0,
+              id: 0,
+              nome: '',
+              descricao: '',
+              porcao: ''
+            }}
           />
         </div>
       ))}
