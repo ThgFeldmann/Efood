@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Product from '../Product'
-import { Cardapio } from '../../App'
+import { Pedido, Restaurant } from '../../App'
 import {
   Button,
   Description,
@@ -12,18 +13,33 @@ import {
 } from './styles'
 import fechar from '../../assets/images/fechar.png'
 import { Overlay } from '../../styles'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
-  produtos: Cardapio[]
+  restaurante: Restaurant
+  pedido: Pedido
 }
 
-const ProductList = ({ produtos }: Props) => {
+const ProductList = ({ restaurante, pedido }: Props) => {
   const [modal, setModal] = useState(false)
-  const [modalNome, setModalNome] = useState('')
-  const [modalDescricao, setModalDescricao] = useState('')
-  const [modalPreco, setModalPreco] = useState(0)
-  const [modalPorcao, setModalPorcao] = useState('')
-  const [modalUrl, setModalUrl] = useState('')
+  const [foodId, setFoodId] = useState(0)
+  const [foodFoto, setFoodFoto] = useState('')
+  const [foodNome, setFoodNome] = useState('')
+  const [foodDescricao, setFoodDescricao] = useState('')
+  const [foodPorcao, setFoodPorcao] = useState('')
+  const [foodPreco, setFoodPreco] = useState(0)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    // erro ocorre nessas declarações
+    pedido.id = foodId
+    pedido.nome = foodNome
+    pedido.foto = foodFoto
+    pedido.preco = foodPreco
+    dispatch(add(pedido))
+    setModal(false)
+    dispatch(open())
+  }
 
   const formataPreco = (preco: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -39,20 +55,25 @@ const ProductList = ({ produtos }: Props) => {
     return modalPorcao
   }
 
+  if (!restaurante) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
     <>
       <ListContainer>
         <ListaProdutos>
-          {produtos.map((produto) => (
-            <div
+          {restaurante.cardapio.map((produto) => (
+            <li
               key={produto.id}
               onClick={() => {
                 setModal(true)
-                setModalNome(produto.nome)
-                setModalDescricao(produto.descricao)
-                setModalPreco(produto.preco)
-                setModalPorcao(produto.porcao)
-                setModalUrl(produto.foto)
+                setFoodNome(produto.nome)
+                setFoodDescricao(produto.descricao)
+                setFoodPreco(produto.preco)
+                setFoodPorcao(produto.porcao)
+                setFoodFoto(produto.foto)
+                setFoodId(produto.id)
               }}
             >
               <Product
@@ -63,7 +84,7 @@ const ProductList = ({ produtos }: Props) => {
                 descricao={produto.descricao}
                 porcao={produto.porcao}
               />
-            </div>
+            </li>
           ))}
         </ListaProdutos>
       </ListContainer>
@@ -75,15 +96,16 @@ const ProductList = ({ produtos }: Props) => {
             alt="Fechar"
             onClick={() => setModal(false)}
           />
-          <img className="prato" src={modalUrl} alt={modalNome} />
+          <img className="prato" src={foodFoto} alt={foodNome} />
           <div className="container">
-            <Title>{modalNome}</Title>
+            <Title>{foodNome}</Title>
             <Description>
-              {modalDescricao} <br />
-              <br />
-              <span>Serve: {formataPorcao(modalPorcao)}</span>
+              <Title>{foodDescricao}</Title>
+              <span>Serve: {formataPorcao(foodPorcao)}</span>
             </Description>
-            <Button>Adicionar ao carrinho - {formataPreco(modalPreco)}</Button>
+            <Button onClick={() => addToCart()}>
+              Adicionar ao carrinho - {formataPreco(foodPreco)}
+            </Button>
           </div>
         </ModalContainer>
         <Overlay onClick={() => setModal(false)} />

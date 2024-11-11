@@ -9,7 +9,6 @@ import {
 } from './styles'
 import estrela from '../../assets/images/estrela.png'
 import Tag from '../Tag'
-import { Cardapio } from '../../App'
 
 type Props = {
   id: number
@@ -19,7 +18,14 @@ type Props = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: Cardapio[]
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const Restaurante = ({
@@ -31,27 +37,6 @@ const Restaurante = ({
   descricao,
   capa
 }: Props) => {
-  // const navigate = useNavigate()
-
-  // const toProfilePage = (
-  //   cardapio: Cardapio[],
-  //   id: number,
-  //   capa: string,
-  //   titulo: string,
-  //   tipo: string
-  // ) => {
-  //   navigate('/perfil', { state: { cardapio, id, capa, titulo, tipo } })
-  // }
-
-  // const handleClick = (
-  //   id: number,
-  //   capa: string,
-  //   titulo: string,
-  //   tipo: string
-  // ) => {
-  //   toProfilePage(cardapio, id, capa, titulo, tipo)
-  // }
-
   return (
     <Card>
       <div className="containerImg">

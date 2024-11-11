@@ -1,18 +1,19 @@
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { Body, EstiloGlobal } from './styles'
 
 import Rotas from './routes'
+import { store } from './store/store'
 
-export type Cardapio = {
-  foto: string
-  preco: number
+export type Pedido = {
   id: number
   nome: string
-  descricao: string
-  porcao: string
+  foto: string
+  preco: number
 }
 
 export type Restaurant = {
+  // prop com informações gerais
   id: number
   titulo: string
   destacado: boolean
@@ -20,17 +21,28 @@ export type Restaurant = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: Cardapio[]
+  cardapio: [
+    {
+      foto: string
+      preco: number
+      id: number
+      nome: string
+      descricao: string
+      porcao: string
+    }
+  ]
 }
 
 function App() {
   return (
-    <BrowserRouter>
-      <Body className="App">
-        <EstiloGlobal />
-        <Rotas />
-      </Body>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Body className="App">
+          <EstiloGlobal />
+          <Rotas />
+        </Body>
+      </BrowserRouter>
+    </Provider>
   )
 }
 
