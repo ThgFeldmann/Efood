@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const CartContainer = styled.div`
   position: fixed;
@@ -26,6 +26,10 @@ export const SideBar = styled.aside`
   justify-content: center;
   background-color: ${cores.rosa};
   color: ${cores.rosa};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 70%;
+  }
 `
 
 export const Item = styled.li`
@@ -42,6 +46,11 @@ export const Item = styled.li`
     height: 80px;
     object-fit: cover;
     margin-right: 8px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      width: 120px;
+      height: 120px;
+    }
   }
 
   h3 {
@@ -50,12 +59,37 @@ export const Item = styled.li`
     line-height: 21px;
     text-align: center;
     margin-bottom: 16px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 150px;
+    }
   }
 
   p {
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 20px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    height: 140px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
   }
 `
 
@@ -66,6 +100,16 @@ export const Lixeira = styled.img`
   max-width: 16px;
   max-height: 16px;
   cursor: pointer;
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 20px;
+    max-height: 20px;
+  }
 `
 
 export const Button = styled.button`
@@ -78,6 +122,14 @@ export const Button = styled.button`
   font-weight: 700;
   line-height: 16px;
   text-align: center;
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    font-size: 22px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 16px;
+  }
 `
 
 export const TotalPrice = styled.div`
@@ -91,5 +143,13 @@ export const TotalPrice = styled.div`
 
   span {
     color: ${cores.bege};
+  }
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    font-size: 22px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 18px;
   }
 `

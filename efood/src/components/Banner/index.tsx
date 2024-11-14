@@ -4,8 +4,10 @@ import bannerImg from '../../assets/images/Vector.png'
 
 const Banner = () => (
   <Container style={{ backgroundImage: `url(${bannerImg})` }}>
-    <img src={logo} alt="Efood" />
-    <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
+    <div className="container">
+      <img src={logo} alt="Efood" />
+      <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
+    </div>
   </Container>
 )
 

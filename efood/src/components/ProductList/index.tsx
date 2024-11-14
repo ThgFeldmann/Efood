@@ -100,7 +100,9 @@ const ProductList = ({ restaurante, pedido }: Props) => {
           <div className="container">
             <Title>{foodNome}</Title>
             <Description>
-              <Title>{foodDescricao}</Title>
+              {foodDescricao}
+              <br />
+              <br />
               <span>Serve: {formataPorcao(foodPorcao)}</span>
             </Description>
             <Button onClick={() => addToCart()}>

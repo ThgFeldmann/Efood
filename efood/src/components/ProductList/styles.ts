@@ -1,10 +1,13 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ListContainer = styled.div`
-  max-width: 100vw;
-  width: 100%;
-  margin: 56px 0 120px;
+  max-width: 1024px;
+  margin: 56px auto 120px;
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    max-width: 768px;
+  }
 `
 
 export const ListaProdutos = styled.ul`
@@ -12,8 +15,19 @@ export const ListaProdutos = styled.ul`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
+
+  li {
+    max-width: 768px;
+  }
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+    max-width: 768px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Modal = styled.div`
@@ -31,6 +45,16 @@ export const Modal = styled.div`
   .prato {
     width: 280px;
     height: 280px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 280px;
+      height: 210px;
+    }
   }
 
   .fechar {
@@ -62,6 +86,25 @@ export const ModalContainer = styled.div`
     max-width: 656px;
     height: 280px;
     margin-left: 24px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      margin: 24px 0 0;
+      height: 246px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-left: 18px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    flex-direction: column;
+    max-width: 650px;
+    height: 600px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 570px;
   }
 `
 
@@ -70,6 +113,14 @@ export const Title = styled.h4`
   font-size: 18px;
   font-weight: 900;
   line-height: 21px;
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    font-size: 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 8px;
+  }
 `
 
 export const Description = styled.p`
@@ -84,6 +135,18 @@ export const Description = styled.p`
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 20px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 14px;
   }
 `
 
@@ -99,4 +162,10 @@ export const Button = styled.button`
   font-weight: 700;
   line-height: 16px;
   text-align: center;
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    max-width: 300px;
+    height: 32px;
+    font-size: 20px;
+  }
 `
