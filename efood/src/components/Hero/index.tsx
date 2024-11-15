@@ -8,17 +8,13 @@ type Props = {
 
 const Hero = ({ titulo, tipo, capa }: Props) => {
   return (
-    <>
-      <div>
-        <HeroContainer>
-          <img src={capa} alt={titulo} />
-          <div className="container">
-            <Categoria>{tipo}</Categoria>
-            <NomeRestaurante>{titulo}</NomeRestaurante>
-          </div>
-        </HeroContainer>
+    <HeroContainer>
+      <img src={capa} alt={titulo} />
+      <div className="container">
+        <Categoria>{tipo}</Categoria>
+        <NomeRestaurante>{titulo}</NomeRestaurante>
       </div>
-    </>
+    </HeroContainer>
   )
 }
 

@@ -19,10 +19,12 @@ const Product = ({ foto, nome, descricao }: Props) => {
 
   return (
     <Card>
-      <img src={foto} alt={nome} />
-      <NomeProduto>{nome}</NomeProduto>
-      <Descricao>{getDescricao(descricao)}</Descricao>
-      <Botao>Adicionar ao carrinho</Botao>
+      <div className="container">
+        <img src={foto} alt={nome} />
+        <NomeProduto>{nome}</NomeProduto>
+        <Descricao>{getDescricao(descricao)}</Descricao>
+        <Botao>Adicionar ao carrinho</Botao>
+      </div>
     </Card>
   )
 }

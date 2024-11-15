@@ -18,12 +18,17 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<Pedido>) => {
-      const pedido = state.pedido.find(
+      const order = state.pedido.find(
         (pedido) => pedido.id === action.payload.id
       )
 
-      if (!pedido) {
-        state.pedido.push(action.payload)
+      if (!order) {
+        state.pedido.push({
+          nome: action.payload.nome,
+          preco: action.payload.preco,
+          id: action.payload.id,
+          foto: action.payload.foto
+        })
       } else {
         alert('O produto já está no carrinho')
       }

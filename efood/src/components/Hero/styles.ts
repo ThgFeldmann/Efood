@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const HeroContainer = styled.div`
   max-width: 1366px;
@@ -15,6 +16,14 @@ export const HeroContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 25px 0 32px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      margin-left: 170px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-left: 80px;
+    }
   }
 
   img {
@@ -32,6 +41,10 @@ export const Categoria = styled.p`
   font-weight: 100;
   font-size: 32px;
   color: #fff;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
+  }
 `
 
 export const NomeRestaurante = styled.h1`
@@ -39,4 +52,8 @@ export const NomeRestaurante = styled.h1`
   font-weight: bold;
   line-height: 38px;
   color: #fff;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 30px;
+  }
 `

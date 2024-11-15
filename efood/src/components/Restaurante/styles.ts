@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Card = styled.div`
   max-width: 944px;
@@ -13,19 +13,31 @@ export const Card = styled.div`
   }
 
   .containerImg {
-    max-width: 472px;
+    max-width: 100%;
     max-height: 217px;
     position: relative;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 100%;
+    }
   }
 
   .container {
+    max-width: 100%;
     width: 472px;
     height: 181px;
     border: 1px solid ${cores.rosa};
     border-top: none;
     padding: 8px;
-
     position: relative;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 345px;
   }
 `
 
@@ -46,6 +58,10 @@ export const Titulo = styled.h3`
   line-height: 21px;
   text-align: center;
   display: flex;
+
+  @media (min-width: 769px) ands (max-width: ${breakpoints.desktop}) {
+    font-size: 20px;
+  }
 `
 
 export const Descricao = styled.p`
@@ -57,6 +73,10 @@ export const Descricao = styled.p`
   height: 100%;
 
   overflow: hidden;
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    font-size: 18px;
+  }
 `
 
 export const CardButton = styled.div`
@@ -78,6 +98,15 @@ export const CardButton = styled.div`
     font-size: 14px;
     font-weight: bold;
     line-height: 16px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+    width: 100px;
+    height: 26px;
   }
 `
 
