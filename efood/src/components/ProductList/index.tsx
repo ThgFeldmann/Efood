@@ -30,8 +30,8 @@ const ProductList = ({ restaurante, pedido }: Props) => {
   const [foodPreco, setFoodPreco] = useState(0)
   const dispatch = useDispatch()
 
+  // função que adiciona items ao carrinho
   const addToCart = () => {
-    // erro ocorre nessas declarações
     pedido.id = foodId
     pedido.nome = foodNome
     pedido.foto = foodFoto
@@ -41,6 +41,7 @@ const ProductList = ({ restaurante, pedido }: Props) => {
     dispatch(open())
   }
 
+  // função que formata o preço do produto para Real
   const formataPreco = (preco: number) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -48,6 +49,7 @@ const ProductList = ({ restaurante, pedido }: Props) => {
     }).format(preco)
   }
 
+  // função que formata a porção do produto para mais de uma pessoa
   const formataPorcao = (modalPorcao: string) => {
     if (modalPorcao.length > 8) {
       return 'de ' + modalPorcao
@@ -55,6 +57,7 @@ const ProductList = ({ restaurante, pedido }: Props) => {
     return modalPorcao
   }
 
+  // caso não retorne uma prop restaurante, indica que está carregando
   if (!restaurante) {
     return <h3>Carregando...</h3>
   }

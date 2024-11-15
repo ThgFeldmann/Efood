@@ -71,7 +71,7 @@ export const Disclaimer = styled.p`
   bottom: 40px;
 
   @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
-    font-size: 24px;
+    font-size: 14px;
     line-height: 24px;
     height: 50px;
     bottom: 70px;
@@ -80,7 +80,7 @@ export const Disclaimer = styled.p`
   @media (max-width: ${breakpoints.tablet}) {
     bottom: 90px;
     max-width: 95%;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 22px;
   }
 `

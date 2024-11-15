@@ -124,7 +124,7 @@ export const Button = styled.button`
   text-align: center;
 
   @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -146,7 +146,7 @@ export const TotalPrice = styled.div`
   }
 
   @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   @media (max-width: ${breakpoints.tablet}) {
