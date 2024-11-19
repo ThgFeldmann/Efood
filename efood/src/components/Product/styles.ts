@@ -45,6 +45,7 @@ export const Descricao = styled.p`
 
 export const Botao = styled.button`
   max-width: 304px;
+  width: 100%;
   height: 24px;
   text-align: center;
   background-color: ${cores.bege};

@@ -2,19 +2,20 @@ import styled from 'styled-components'
 import { breakpoints, cores } from '../../styles'
 
 export const Card = styled.div`
-  max-width: 944px;
+  max-width: 472px;
   max-height: 398px;
   background-color: ${cores.branco};
 
   .restaurant {
-    max-width: 100%;
-    max-height: 217px;
     width: 100%;
+    height: 217px;
   }
 
   .containerImg {
-    max-width: 100%;
+    max-width: 472px;
+    width: 100%
     max-height: 217px;
+    height: 217px;
     position: relative;
 
     @media (max-width: ${breakpoints.desktop}) {
@@ -45,7 +46,6 @@ export const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
-  margin: 0 0 8px;
 
   img {
     margin-left: 8px;
