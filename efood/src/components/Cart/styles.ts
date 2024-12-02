@@ -15,23 +15,6 @@ export const CartContainer = styled.div`
   }
 `
 
-export const SideBar = styled.aside`
-  width: 360px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 16px 8px 0;
-  align-items: center;
-  justify-content: center;
-  background-color: ${cores.rosa};
-  color: ${cores.rosa};
-
-  @media (max-width: ${breakpoints.tablet}) {
-    width: 70%;
-  }
-`
-
 export const Item = styled.li`
   background-color: ${cores.bege};
   width: 344px;

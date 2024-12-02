@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import Hero from '../../components/Hero'
 import ProductList from '../../components/ProductList'
 import Cart from '../../components/Cart'
+import Checkout from '../../components/Checkout'
 
 const Perfil = () => {
   const location = useLocation()
@@ -36,6 +37,7 @@ const Perfil = () => {
       />
       <Footer />
       <Cart />
+      <Checkout />
     </>
   )
 }

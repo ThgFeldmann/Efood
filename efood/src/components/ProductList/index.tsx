@@ -13,7 +13,7 @@ import {
 } from './styles'
 import fechar from '../../assets/images/fechar.png'
 import { Overlay } from '../../styles'
-import { add, open } from '../../store/reducers/cart'
+import { add, openCart } from '../../store/reducers/cart'
 
 type Props = {
   restaurante: Restaurant
@@ -38,7 +38,7 @@ const ProductList = ({ restaurante, pedido }: Props) => {
     pedido.preco = foodPreco
     dispatch(add(pedido))
     setModal(false)
-    dispatch(open())
+    dispatch(openCart())
   }
 
   // função que formata o preço do produto para Real

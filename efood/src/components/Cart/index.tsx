@@ -1,23 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store/store'
-import {
-  Button,
-  CartContainer,
-  Item,
-  Lixeira,
-  SideBar,
-  TotalPrice
-} from './styles'
+import { Button, CartContainer, Item, Lixeira, TotalPrice } from './styles'
+import { SideBar } from '../../styles/index'
 import { Overlay } from '../../styles'
-import { close, remove } from '../../store/reducers/cart'
+import { closeCart, openCheckout, remove } from '../../store/reducers/cart'
 import lixo from '../../assets/images/lixo.png'
 
 const Cart = () => {
-  const { isOpen, pedido } = useSelector((state: RootReducer) => state.cart)
+  const { isCartOpen, pedido } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
-  const closeCart = () => {
-    dispatch(close())
+  const cartCloser = () => {
+    dispatch(closeCart())
   }
 
   const formataPreco = (preco: number) => {
@@ -37,9 +31,13 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
+  const toCheckout = () => {
+    dispatch(openCheckout())
+  }
+
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={() => closeCart()} />
+    <CartContainer className={isCartOpen ? 'is-open' : ''}>
+      <Overlay onClick={cartCloser} />
       <SideBar>
         <ul>
           {pedido.map((pedido) => (
@@ -61,7 +59,7 @@ const Cart = () => {
           <p>Valor total</p>
           <span>{formataPreco(getTotalPrice())}</span>
         </TotalPrice>
-        <Button>Continuar com a entrega</Button>
+        <Button onClick={toCheckout}>Continuar com a entrega</Button>
       </SideBar>
     </CartContainer>
   )

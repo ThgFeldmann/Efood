@@ -6,6 +6,7 @@ import Rotas from './routes'
 import { store } from './store/store'
 
 export type Pedido = {
+  // prop com informações do pedido
   id: number
   nome: string
   foto: string
