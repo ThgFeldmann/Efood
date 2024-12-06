@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
+import { formataPreco } from '../../Utils'
+
+import { add, openCart } from '../../store/reducers/cart'
 import Product from '../Product'
 import { Pedido, Restaurant } from '../../App'
+
 import {
   Button,
   Description,
@@ -13,7 +18,6 @@ import {
 } from './styles'
 import fechar from '../../assets/images/fechar.png'
 import { Overlay } from '../../styles'
-import { add, openCart } from '../../store/reducers/cart'
 
 type Props = {
   restaurante: Restaurant
@@ -39,14 +43,6 @@ const ProductList = ({ restaurante, pedido }: Props) => {
     dispatch(add(pedido))
     setModal(false)
     dispatch(openCart())
-  }
-
-  // função que formata o preço do produto para Real
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
   }
 
   // função que formata a porção do produto para mais de uma pessoa

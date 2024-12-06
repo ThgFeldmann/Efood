@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { useGetRestaurantQuery } from '../../services/api'
 
@@ -7,12 +8,23 @@ import Hero from '../../components/Hero'
 import ProductList from '../../components/ProductList'
 import Cart from '../../components/Cart'
 import Checkout from '../../components/Checkout'
+import { RootReducer } from '../../store/store'
+import { formataPreco } from '../../Utils'
 
 const Perfil = () => {
+  const { pedido } = useSelector((state: RootReducer) => state.cart)
   const location = useLocation()
   const id = location.state.id
 
   const { data: restaurante } = useGetRestaurantQuery(id)
+
+  const getTotalPrice = () => {
+    return pedido.reduce((acumulador, valorAtual) => {
+      return (acumulador += valorAtual.preco)
+    }, 0)
+  }
+
+  const totalCost = formataPreco(getTotalPrice())
 
   if (!restaurante) {
     return <h3>Carregando...</h3>
@@ -36,8 +48,8 @@ const Perfil = () => {
         }}
       />
       <Footer />
-      <Cart />
-      <Checkout />
+      <Cart totalPrice={totalCost} />
+      <Checkout totalPrice={totalCost} />
     </>
   )
 }

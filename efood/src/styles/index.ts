@@ -52,7 +52,8 @@ export const Overlay = styled.div`
 `
 
 export const SideBar = styled.aside`
-  width: 360px;
+  max-width: 360px;
+  width: 100%;
   height: 100%;
   position: fixed;
   top: 0;

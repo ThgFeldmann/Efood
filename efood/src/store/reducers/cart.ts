@@ -62,12 +62,6 @@ const cartSlice = createSlice({
       state.isPaymentOpen = true
       state.isConfirmationOpen = false
     },
-    toConfirmation: (state) => {
-      state.isCartOpen = false
-      state.isDeliveryOpen = false
-      state.isPaymentOpen = false
-      state.isConfirmationOpen = true
-    },
     backToCart: (state) => {
       state.isCartOpen = true
       state.isDeliveryOpen = false
@@ -80,7 +74,13 @@ const cartSlice = createSlice({
       state.isPaymentOpen = false
       state.isConfirmationOpen = false
     },
-    closeAndFinish: (state) => {
+    conclude: (state) => {
+      state.isCartOpen = false
+      state.isDeliveryOpen = false
+      state.isPaymentOpen = false
+      state.isConfirmationOpen = true
+    },
+    closeAfterConcluded: (state) => {
       state.isCartOpen = false
       state.isDeliveryOpen = false
       state.isPaymentOpen = false
@@ -97,9 +97,9 @@ export const {
   closeCart,
   openCheckout,
   toPayment,
-  toConfirmation,
   backToCart,
   closeAll,
-  closeAndFinish
+  conclude,
+  closeAfterConcluded
 } = cartSlice.actions
 export default cartSlice.reducer

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Container = styled.div`
   position: fixed;
@@ -16,6 +16,14 @@ export const Container = styled.div`
     font-weight: bold;
     line-height: 18px;
     margin-bottom: 16px;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 20px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 22px;
+    }
   }
 
   p {
@@ -23,6 +31,14 @@ export const Container = styled.div`
     font-weight: 400;
     line-height: 22px;
     color: ${cores.bege};
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 18px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 18px;
+    }
   }
 
   &.is-open {
@@ -47,6 +63,16 @@ export const ButtonContainer = styled.div`
     font-weight: bold;
     line-height: 16px;
     text-align: center;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 16px;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 16px;
+    }
   }
 `
 
@@ -62,6 +88,14 @@ export const InputGroup = styled.div`
     line-height: 16px;
     margin-bottom: 8px;
     width: 100%;
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 18px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 18px;
+    }
   }
 
   input {
@@ -78,6 +112,18 @@ export const InputGroup = styled.div`
     font-size: 14px;
     font-weight: bold;
     line-height; 16px;
+
+    &.error {
+      border: solid 3px red;
+    }
+
+    @media (min-width: 769px) and (max-width: ${breakpoints.desktop}) {
+      font-size: 16px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 16px;
+    }
   }
 `
 

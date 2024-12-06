@@ -1,12 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
+
+import { formataPreco } from '../../Utils'
+
 import { RootReducer } from '../../store/store'
+import { closeCart, openCheckout, remove } from '../../store/reducers/cart'
+
+import lixo from '../../assets/images/lixo.png'
 import { Button, CartContainer, Item, Lixeira, TotalPrice } from './styles'
 import { SideBar } from '../../styles/index'
 import { Overlay } from '../../styles'
-import { closeCart, openCheckout, remove } from '../../store/reducers/cart'
-import lixo from '../../assets/images/lixo.png'
 
-const Cart = () => {
+type Props = {
+  totalPrice: string
+}
+
+const Cart = ({ totalPrice }: Props) => {
   const { isCartOpen, pedido } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
@@ -14,25 +22,16 @@ const Cart = () => {
     dispatch(closeCart())
   }
 
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
-
-  const getTotalPrice = () => {
-    return pedido.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco)
-    }, 0)
-  }
-
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
 
   const toCheckout = () => {
-    dispatch(openCheckout())
+    if (pedido.length > 0) {
+      dispatch(openCheckout())
+    } else {
+      alert('Não há items no carrinho')
+    }
   }
 
   return (
@@ -57,7 +56,7 @@ const Cart = () => {
         </ul>
         <TotalPrice>
           <p>Valor total</p>
-          <span>{formataPreco(getTotalPrice())}</span>
+          <span>{totalPrice}</span>
         </TotalPrice>
         <Button onClick={toCheckout}>Continuar com a entrega</Button>
       </SideBar>
